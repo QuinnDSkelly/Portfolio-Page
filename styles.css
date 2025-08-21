@@ -511,16 +511,29 @@ a:hover {
 }
 
 .section .section-header h2 {
-    color: #0f172a !important;
+    color: #1e40af !important;
     font-size: var(--font-size-4xl) !important;
     font-weight: 700 !important;
     margin-bottom: var(--spacing-lg) !important;
     letter-spacing: -0.02em !important;
     text-align: center !important;
+    position: relative !important;
+}
+
+.section .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #1e40af;
+    border-radius: 2px;
 }
 
 .section .section-header .section-subtitle {
-    color: #10b981 !important;
+    color: #1e40af !important;
     font-size: var(--font-size-lg) !important;
     font-weight: 500 !important;
     margin-bottom: 0 !important;
@@ -1515,7 +1528,7 @@ html .section .section-header,
 body .section .section-header h2,
 html .section .section-header h2,
 .section .section-header h2 {
-    color: #0f172a !important;
+    color: #1e40af !important;
     font-size: var(--font-size-4xl) !important;
     font-weight: 700 !important;
     margin-bottom: var(--spacing-lg) !important;
@@ -1527,7 +1540,7 @@ html .section .section-header h2,
 body .section .section-header .section-subtitle,
 html .section .section-header .section-subtitle,
 .section .section-header .section-subtitle {
-    color: #3b82f6 !important;
+    color: #1e40af !important;
     font-size: var(--font-size-lg) !important;
     font-weight: 500 !important;
     margin-bottom: 0 !important;
@@ -1540,20 +1553,13 @@ html .section .section-header .section-subtitle,
 /* Removed the ::after pseudo-element that created green underlines */
 
 /* Debug and force section header styling */
-.section-header {
-    background-color: yellow !important;
-    border: 3px solid red !important;
-    text-align: center !important;
-}
 
 .section-header h2 {
-    background-color: lightblue !important;
-    color: #0f172a !important;
+    color: #1e40af !important;
     text-align: center !important;
 }
 
 .section-header .section-subtitle {
-    background-color: lightgreen !important;
-    color: #3b82f6 !important;
+    color: #1e40af !important;
     text-align: center !important;
 } 
