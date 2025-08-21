@@ -240,7 +240,7 @@ a:hover {
 /* Hero Section */
 .hero {
     padding: 120px 0 var(--spacing-3xl);
-    background: #000080;
+    background: #1a4d2e;
     position: relative;
     overflow: hidden;
     min-height: 100vh;
@@ -253,7 +253,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #000080;
+    background: #1a4d2e;
     pointer-events: none;
     z-index: 1;
 }
@@ -261,15 +261,10 @@ a:hover {
 .hero .container {
     position: relative;
     z-index: 2;
-}
-
-.hero .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-3xl);
     align-items: center;
-    position: relative;
-    z-index: 2;
 }
 
 .hero-content {
@@ -281,6 +276,8 @@ a:hover {
     margin-bottom: var(--spacing-lg);
     text-align: left;
     color: white;
+    font-size: 3.5rem;
+    font-weight: 700;
 }
 
 .highlight {
@@ -291,12 +288,14 @@ a:hover {
     font-size: var(--font-size-xl);
     color: white;
     margin-bottom: var(--spacing-lg);
+    font-weight: 500;
 }
 
 .hero-description {
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-xl);
     color: white;
+    line-height: 1.7;
 }
 
 .hero-actions {
@@ -304,6 +303,51 @@ a:hover {
     gap: var(--spacing-md);
     flex-wrap: wrap;
     margin-top: var(--spacing-xl);
+}
+
+/* Profile Card */
+.hero-profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: var(--spacing-3xl);
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-image-container {
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    display: block;
+}
+
+.profile-name {
+    color: white;
+    font-size: var(--font-size-2xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.profile-title {
+    color: white;
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin-bottom: 0;
 }
 
 /* --- HERO IMAGE RESPONSIVENESS FIX --- */
@@ -386,11 +430,12 @@ a:hover {
 }
 
 .btn-primary {
-    background: #3b82f6;
-    color: white;
+    background: #d4af37;
+    color: #1a4d2e;
     border: none;
     position: relative;
     overflow: hidden;
+    font-weight: 600;
 }
 
 .btn-primary::before {
@@ -405,7 +450,7 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background: #2563eb;
+    background: #b8941f;
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -417,9 +462,10 @@ a:hover {
 .btn-secondary {
     background: transparent;
     color: white;
-    border: 2px solid white;
+    border: 2px solid #d4af37;
     position: relative;
     overflow: hidden;
+    font-weight: 600;
 }
 
 .btn-secondary::before {
@@ -429,13 +475,13 @@ a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: white;
+    background: #d4af37;
     transition: var(--transition-normal);
     z-index: -1;
 }
 
 .btn-secondary:hover {
-    color: #000080;
+    color: #1a4d2e;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -453,19 +499,34 @@ a:hover {
     background: var(--background-secondary);
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: var(--spacing-3xl);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+/* Section Headers - Enhanced with higher specificity */
+.section .section-header {
+    text-align: center !important;
+    margin-bottom: var(--spacing-3xl) !important;
+    padding: var(--spacing-2xl) 0 !important;
 }
 
-.section-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--text-secondary);
-    margin-top: var(--spacing-sm);
+.section .section-header h2 {
+    color: #1a4d2e !important;
+    font-size: var(--font-size-4xl) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--spacing-lg) !important;
+    letter-spacing: -0.02em !important;
+    text-align: center !important;
 }
+
+.section .section-header .section-subtitle {
+    color: #10b981 !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 500 !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding-bottom: var(--spacing-lg) !important;
+    text-align: center !important;
+}
+
+/* Removed the ::after pseudo-element that created green underlines */
 
 /* About Section */
 .about-content {
@@ -1361,4 +1422,134 @@ div#success-message p,
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+} 
+
+/* Responsive Hero */
+@media (max-width: 768px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+        text-align: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    
+    .hero-actions {
+        justify-content: center;
+    }
+    
+    .hero-profile-card {
+        padding: var(--spacing-2xl);
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+} 
+
+/* Responsive Section Headers - Enhanced with higher specificity */
+@media (max-width: 768px) {
+    .section .section-header {
+        padding: var(--spacing-xl) 0 !important;
+        margin-bottom: var(--spacing-2xl) !important;
+    }
+    
+    .section .section-header h2 {
+        font-size: var(--font-size-3xl) !important;
+    }
+    
+    .section .section-header .section-subtitle {
+        font-size: var(--font-size-base) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .section .section-header h2 {
+        font-size: var(--font-size-2xl) !important;
+    }
+    
+    .section .section-header .section-subtitle {
+        font-size: var(--font-size-base) !important;
+    }
+} 
+
+/* Section Headers - Maximum specificity override */
+body .section .section-header,
+html .section .section-header,
+.section .section-header {
+    text-align: center !important;
+    margin-bottom: var(--spacing-3xl) !important;
+    padding: var(--spacing-2xl) 0 !important;
+    display: block !important;
+}
+
+body .section .section-header h2,
+html .section .section-header h2,
+.section .section-header h2 {
+    color: #1a4d2e !important;
+    font-size: var(--font-size-4xl) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--spacing-lg) !important;
+    letter-spacing: -0.02em !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+body .section .section-header .section-subtitle,
+html .section .section-header .section-subtitle,
+.section .section-header .section-subtitle {
+    color: #10b981 !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 500 !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+    display: inline-block !important;
+    padding-bottom: var(--spacing-lg) !important;
+    text-align: center !important;
+}
+
+/* Removed the ::after pseudo-element that created green underlines */
+
+/* Debug and force section header styling */
+.section-header {
+    background-color: yellow !important;
+    border: 3px solid red !important;
+    text-align: center !important;
+}
+
+.section-header h2 {
+    background-color: lightblue !important;
+    color: #1a4d2e !important;
+    text-align: center !important;
+}
+
+.section-header .section-subtitle {
+    background-color: lightgreen !important;
+    color: #10b981 !important;
+    text-align: center !important;
 } 
